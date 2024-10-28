@@ -11,7 +11,7 @@ range of indexes to return in a list.
 """
 
 
-def index_range(page: int, page_size: int) -> Tuple[int, int]:
+def index_range(page, page_size):
     """
     Function index_range that takes two integer arguments: page and page_size.
 
