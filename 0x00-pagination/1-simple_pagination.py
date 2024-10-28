@@ -15,7 +15,7 @@ from typing import List, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """ 
+    """
     Function index_range that takes two integer arguments: page and page_size.
 
     Args:
@@ -28,6 +28,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     start_page = (page - 1) * page_size
     end_page = start_page + page_size
     return (start_page, end_page)
+
 
 class Server:
     """Server class to paginate a database of popular baby names."""
