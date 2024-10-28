@@ -17,11 +17,11 @@ from typing import List, Tuple
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """ 
     Function index_range that takes two integer arguments: page and page_size.
-    
+
     Args:
         page (int): The current page number.
         page_size (int): The number of items per page.
-    
+
     Returns:
         tuple[int, int]: A tuple containing the start index and end index.
     """
