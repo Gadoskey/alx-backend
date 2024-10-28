@@ -12,9 +12,9 @@ range of indexes to return in a list.
 
 
 def index_range(page, page_size):
-  """function index_range that takes two integer arguments page and page_size
-  Return: the start_page and page_size
-  """
-  start_page = (page - 1) * page_size
-  end_page = start_page + page_size
-  return (start_page, end_page)
+    """function index_range that takes two integer arguments page and page_size
+    Return: the start_page and page_size
+    """
+    start_page = (page - 1) * page_size
+    end_page = start_page + page_size
+    return (start_page, end_page)
