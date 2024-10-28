@@ -11,9 +11,16 @@ range of indexes to return in a list.
 """
 
 
-def index_range(page, page_size):
-    """function index_range that takes two integer arguments page and page_size
-    Return: the start_page and page_size
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """ 
+    Function index_range that takes two integer arguments: page and page_size.
+    
+    Args:
+        page (int): The current page number.
+        page_size (int): The number of items per page.
+    
+    Returns:
+        tuple[int, int]: A tuple containing the start index and end index.
     """
     start_page = (page - 1) * page_size
     end_page = start_page + page_size
