@@ -2,7 +2,7 @@
 """
 BasicCache module that inherits from BaseCaching
 
-Author: Yusuf Mustapha Opeyemi
+Author: Gadoskey
 """
 from base_caching import BaseCaching
 
