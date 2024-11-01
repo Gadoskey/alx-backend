@@ -5,6 +5,9 @@ BasicCache module that inherits from BaseCaching
 Author: Yusuf Mustapha Opeyemi
 """
 
+BaseCaching = __import__('base_caching').BaseCaching
+
+
 class BasicCache(BaseCaching):
     """
     BasicCache class with put and get methods to store and retrieve items
