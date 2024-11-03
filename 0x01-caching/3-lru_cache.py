@@ -1,30 +1,30 @@
 #!/usr/bin/python3
 """
-LIFOCache module that inherits from BaseCaching
+LRUCache module that inherits from BaseCaching
 
 Author: Gadoskey
 """
 from base_caching import BaseCaching
 
 
-class LIFOCache(BaseCaching):
+class LRUCache(BaseCaching):
     """
-    LIFOCache class that implements a caching system
-    following the LIFO (Last In First Out) algorithm.
+    LRUCache class that implements a caching system
+    following the LRU (Least Recently Used) algorithm.
 
     Methods:
-        put(key, item): Adds an item to the cache with LIFO eviction.
+        put(key, item): Adds an item to the cache with LRU eviction.
         get(key): Retrieves an item by key from the cache.
     """
 
     def __init__(self):
         """ Initialize the cache """
         super().__init__()
-        self.order = []  # To keep track of insertion order for LIFO
+        self.order = []  # To keep track of insertion order for LRU
 
     def put(self, key, item):
         """
-        Add an item to the cache using LIFO algorithm.
+        Add an item to the cache using LRU algorithm.
 
         Parameters:
             key (str): The key under which to store the item.
@@ -36,13 +36,15 @@ class LIFOCache(BaseCaching):
         # If the key is already in the cache, we update the item
         if key in self.cache_data:
             self.cache_data[key] = item
+            self.order.remove(key)
+            self.order.append(key)
         else:
-            # If cache is full, remove the latest item based on LIFO
+            # If cache is full, remove the least recently used item based on LRU
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 # Remove the oldest item in cache
-                latest_key = self.order.pop(len(self.cache_data) - 1)
-                del self.cache_data[latest_key]
-                print(f"DISCARD: {latest_key}")
+                least_used = self.order.pop(0)
+                del self.cache_data[least_used]
+                print(f"DISCARD: {least_used}")
 
             # Insert the new key-value pair into the cache
             self.cache_data[key] = item
