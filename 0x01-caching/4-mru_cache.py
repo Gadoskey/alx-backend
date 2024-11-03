@@ -60,7 +60,7 @@ class MRUCache(BaseCaching):
         Returns:
             The value associated with the key if found, otherwise None.
         """
-        if key is None:
+        if key is None or key not in self.cache_data:
             return None
         self.order.remove(key)
         self.order.append(key)
