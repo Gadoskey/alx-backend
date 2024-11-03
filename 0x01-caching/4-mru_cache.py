@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 """
-LRUCache module that inherits from BaseCaching
+MRUCache module that inherits from BaseCaching
 
 Author: Gadoskey
 """
 from base_caching import BaseCaching
 
 
-class LRUCache(BaseCaching):
+class MRUCache(BaseCaching):
     """
-    LRUCache class that implements a caching system
-    following the LRU (Least Recently Used) algorithm.
+    MRUCache class that implements a caching system
+    following the MRU (Most Recently Used) algorithm.
 
     Methods:
-        put(key, item): Adds an item to the cache with LRU eviction.
+        put(key, item): Adds an item to the cache with MRU eviction.
         get(key): Retrieves an item by key from the cache.
     """
 
@@ -42,7 +42,7 @@ class LRUCache(BaseCaching):
             # If cache is full, remove the least recently used item
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 # Remove the oldest item in cache
-                least_used = self.order.pop(0)
+                least_used = self.order.pop(len(self.cache_data) -1)
                 del self.cache_data[least_used]
                 print(f"DISCARD: {least_used}")
 
