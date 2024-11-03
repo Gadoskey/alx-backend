@@ -39,7 +39,7 @@ class LRUCache(BaseCaching):
             self.order.remove(key)
             self.order.append(key)
         else:
-            # If cache is full, remove the least recently used item based on LRU
+            # If cache is full, remove the least recently used item
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 # Remove the oldest item in cache
                 least_used = self.order.pop(0)
