@@ -17,7 +17,7 @@ class LFUCache(BaseCaching):
     def put(self, key, item):
         if key is None or item is None:
             return
-        
+
         # Update existing key
         if key in self.cache_data:
             self.cache_data[key] = item
@@ -30,15 +30,16 @@ class LFUCache(BaseCaching):
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 # Find LFU key or LRU among LFUs
                 min_freq = min(self.frequency.values())
-                lfu_keys = [k for k in self.order if self.frequency[k] == min_freq]
-                
+                lfu_keys = [k for k in self.
+                            order if self.frequency[k] == min_freq]
+
                 # Evict the LRU among the LFU keys
                 lru_key = lfu_keys[0]
                 self.order.remove(lru_key)
                 del self.cache_data[lru_key]
                 del self.frequency[lru_key]
                 print(f"DISCARD: {lru_key}")
-            
+
             # Insert new key-value pair
             self.cache_data[key] = item
             self.frequency[key] = 1
